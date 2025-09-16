@@ -11,17 +11,30 @@ import {
   type NodeChange,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
+import Triggers from "./Triggers";
 
-const initialNodes: Node[] = [
-  { id: "n1", position: { x: 0, y: 0 }, data: { label: "Node 1" } },
-  { id: "n2", position: { x: 0, y: 100 }, data: { label: "Node 2 " } },
+const testInitialNodes: Node[] = [
+  {
+    id: "add-step",
+    position: { x: 200, y: 50 },
+    data: {
+      label: (
+        <div className="flex flex-col items-center justify-center text-gray-400">
+          <div className="w-12 h-12 rounded-md border-2 border-dashed border-gray-500 flex items-center justify-center">
+            <span className="text-2xl">+</span>
+          </div>
+          <div>Add first step...</div>
+        </div>
+      ),
+    },
+  },
 ];
 
-const initialEdges: Edge[] = [{ id: "n1-n2", source: "n1", target: "n2" }];
+const testInitialEdges: Edge[] = [];
 
 function Reactflow() {
-  const [nodes, setNodes] = useState<Node[]>(initialNodes);
-  const [edges, setEdges] = useState<Edge[]>(initialEdges);
+  const [nodes, setNodes] = useState<Node[]>(testInitialNodes);
+  const [edges, setEdges] = useState<Edge[]>(testInitialEdges);
 
   const onNodesChange = useCallback(
     (changes: NodeChange[]) =>
@@ -51,6 +64,10 @@ function Reactflow() {
         onConnect={onConnect}
         fitView
       />
+
+      <div>
+        <Triggers />
+      </div>
     </div>
   );
 }

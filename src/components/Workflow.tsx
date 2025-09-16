@@ -1,5 +1,6 @@
 import Reactflow from "./Reactflow";
 import Sidebar from "./Sidebar";
+import Triggers from "./Triggers";
 import WorkflowLogs from "./WorkflowLogs";
 
 function Workflow() {
