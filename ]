@@ -1,0 +1,31 @@
+import { useState } from "react";
+import { workflows as dummyWorkflows } from "../data/workflows";
+
+function Workflows() {
+  const [workflows, setWorkflows] = useState(dummyWorkflows);
+
+  return (
+    <div className="">
+      {workflows.map((workflow, idx) => (
+        <div
+          key={idx}
+          className="w-full h-18 bg-zinc-500 my-4 px-6 py-4 rounded-md"
+        >
+          <h1>{workflow.title}</h1>
+          <div className="flex justify-between text-gray-300">
+            <div className="flex">
+              <p>{workflow.lastUpdated}</p>
+              <p>{workflow.createdAt}</p>
+            </div>
+            <div className="flex items-center">
+              <p>{workflow.owner}</p>
+              <p>{workflow.status}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default Workflows;

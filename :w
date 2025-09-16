@@ -1,0 +1,35 @@
+import { useState } from "react";
+import { workflows as dummyWorkflows } from "../data/workflows";
+import { User } from "lucide-react";
+
+function Workflows() {
+  const [workflows, setWorkflows] = useState(dummyWorkflows);
+
+  return (
+    <div className="">
+      {workflows.map((workflow, idx) => (
+        <div
+          key={idx}
+          className="w-full h-18 bg-zinc-700 my-4 px-6 py-4 rounded-md"
+        >
+          <h1 className="text-gray-300">{workflow.title}</h1>
+          <div className="flex justify-between text-gray-500">
+            <div className="flex">
+              <p>{workflow.lastUpdated}</p>
+              <p>{workflow.createdAt}</p>
+            </div>
+            <div className="flex items-center">
+              <div className="flex">
+                <User />
+                <p>{workflow.owner}</p>
+              </div>
+              <p>{workflow.status}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default Workflows;
