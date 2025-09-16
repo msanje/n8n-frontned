@@ -29,7 +29,7 @@ function Sidebar() {
   ]);
 
   return (
-    <div className="flex flex-col justify-between min-h-screen w-48">
+    <div className="flex flex-col justify-between min-h-screen w-64 border-r-1">
       <div className="flex justify-between items-center px-4 py-2">
         <h1 className="text-3xl">n8n</h1>
         {/* TODO: On hover style color and border to orange */}

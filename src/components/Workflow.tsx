@@ -1,13 +1,14 @@
 import Reactflow from "./Reactflow";
 import Sidebar from "./Sidebar";
+import WorkflowLogs from "./WorkflowLogs";
 
 function Workflow() {
   return (
-    <div className="flex h-screen">
+    <div className="grid grid-cols-[16rem_1fr] h-screen">
       <Sidebar />
-      <div className="flex-1 flex flex-col">
-        <h1>Reactflow Page</h1>
+      <div className="grid grid-rows-[2fr_1fr]">
         <Reactflow />
+        <WorkflowLogs />
       </div>
     </div>
   );
