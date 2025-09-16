@@ -19,7 +19,7 @@ const testInitialNodes: Node[] = [
     position: { x: 200, y: 50 },
     data: {
       label: (
-        <div className="flex flex-col items-center justify-center text-gray-400">
+        <div className="flex flex-col items-center justify-center text-gray-400 cursor-pointer">
           <div className="w-12 h-12 rounded-md border-2 border-dashed border-gray-500 flex items-center justify-center">
             <span className="text-2xl">+</span>
           </div>
@@ -65,9 +65,9 @@ function Reactflow() {
         fitView
       />
 
-      <div>
-        <Triggers />
-      </div>
+      {/* <div> */}
+      {/*   <Triggers /> */}
+      {/* </div> */}
     </div>
   );
 }

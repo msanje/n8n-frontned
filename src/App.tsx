@@ -4,6 +4,7 @@ import Dashboard from "./components/Dashboard";
 import Home from "./components/Home";
 import Landing from "./components/Landing";
 import Workflow from "./components/Workflow";
+import Test from "./components/Test";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/dashbaord" element={<Dashboard />} />
           <Route path="/workflow" element={<Workflow />} />
+          <Route path="/test" element={<Test />} />
         </Routes>
       </main>
     </div>
