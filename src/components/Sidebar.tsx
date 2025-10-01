@@ -1,6 +1,8 @@
 import {
   Bell,
   ChartColumnDecreasing,
+  CircleChevronLeft,
+  CircleChevronRight,
   CircleQuestionMark,
   Cloud,
   Home,
@@ -12,10 +14,13 @@ import {
   Variable,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import SidebarToggleArrow from "./SidebarToggleArrow";
 import Icon from "./Icons";
+import { useUIStore } from "../store/uiStore";
 
 function Sidebar() {
+  const collapsed = useUIStore((s) => s.sidebarCollapsed);
+  const toggleSidebar = useUIStore((s) => s.toggleSidebar);
+
   const otherOptions = [
     { name: "Admin Panel", icon: Cloud },
     { name: "Templates", icon: LayoutPanelTop },
@@ -25,7 +30,6 @@ function Sidebar() {
     { name: "What's New", icon: Bell },
   ];
   const sidebarRef = useRef<HTMLDivElement>(null);
-  const [collapsed, setCollapsed] = useState(false);
   const [height, setHeight] = useState(0);
 
   const [projects, setProjects] = useState([
@@ -88,11 +92,9 @@ function Sidebar() {
           </div>
         </div>
 
-        <SidebarToggleArrow
-          sidebarHeight={height}
-          collapsed={collapsed}
-          toggle={() => setCollapsed((prev) => !prev)}
-        />
+        <div onClick={toggleSidebar} className="cursor-pointer">
+          {collapsed ? <CircleChevronRight /> : <CircleChevronLeft />}
+        </div>
 
         <div className="px-4">
           {otherOptions.map((option, idx) => (

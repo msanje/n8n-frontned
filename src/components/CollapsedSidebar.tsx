@@ -14,8 +14,12 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import Icon from "./Icons";
+import { useUIStore } from "../store/uiStore";
 
 function CollapsedSidebar() {
+  const collapsed = useUIStore((s) => s.sidebarCollapsed);
+  const toggleSidebar = useUIStore((s) => s.toggleSidebar);
+
   const otherOptions = [
     { name: "Admin Panel", icon: Cloud },
     { name: "Templates", icon: LayoutPanelTop },
@@ -24,8 +28,6 @@ function CollapsedSidebar() {
     { name: "Help", icon: CircleQuestionMark },
     { name: "What's New", icon: Bell },
   ];
-  const [show, setShow] = useState(false);
-
   const [projects, setProjects] = useState([
     "Project One",
     "Project Two",
@@ -39,9 +41,7 @@ function CollapsedSidebar() {
           <Icon name="logo" size={28} color="gray" className="text-blue-500" />
         </h1>
       </div>
-
       {/* TODO: On hover style color and border to orange */}
-
       <div className="flex flex-col justify-between mx-auto">
         <div className="flex flex-col gap-4">
           <button className="flex gap-2">
@@ -69,8 +69,8 @@ function CollapsedSidebar() {
         </div>
       </div>
 
-      <div onClick={() => setShow((prev) => !prev)} className="cursor-pointer">
-        {show ? <CircleChevronRight /> : <CircleChevronLeft />}
+      <div onClick={toggleSidebar} className="cursor-pointer">
+        {collapsed ? <CircleChevronRight /> : <CircleChevronLeft />}
       </div>
 
       <div className="px-4">
