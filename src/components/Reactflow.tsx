@@ -33,8 +33,17 @@ const testInitialNodes: Node[] = [
 const testInitialEdges: Edge[] = [];
 
 function Reactflow() {
+  const [show, setShow] = useState(false);
+
   const [nodes, setNodes] = useState<Node[]>(testInitialNodes);
   const [edges, setEdges] = useState<Edge[]>(testInitialEdges);
+
+  // TODO: verify whether we really need this
+  const sampleTrigger = {
+    id: "webhook",
+    title: "On webhook call",
+    description: "Runs the flow on receiving an HTTP request",
+  };
 
   const onNodesChange = useCallback(
     (changes: NodeChange[]) =>
@@ -65,9 +74,11 @@ function Reactflow() {
         fitView
       />
 
-      {/* <div> */}
-      {/*   <Triggers /> */}
-      {/* </div> */}
+      <Triggers
+        open={show}
+        trigger={sampleTrigger}
+        close={() => setShow(false)}
+      />
     </div>
   );
 }

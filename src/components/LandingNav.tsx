@@ -4,20 +4,20 @@ function LandingNav() {
       <div className="flex gap-8 text-sm">
         <div className="flex items-center">
           {/* LOGO */}
-          <h1 className="text-3xl">n8n</h1>
+          <h1 className="text-3xl cursor-pointer">n8n</h1>
         </div>
 
-        <button>Product</button>
-        <button>Use cases</button>
-        <button>Docs</button>
-        <button>Community</button>
-        <button>Enterprise</button>
-        <button>Pricing</button>
+        {/* <button className="cursor-pointer">Product</button> */}
+        {/* <button className="cursor-pointer">Use cases</button> */}
+        {/* <button className="cursor-pointer">Docs</button> */}
+        {/* <button className="cursor-pointer">Community</button> */}
+        {/* <button className="cursor-pointer">Enterprise</button> */}
+        {/* <button className="cursor-pointer">Pricing</button> */}
       </div>
       <div className="flex gap-8">
-        <button>GitHub</button>
-        <button>Sign in</button>
-        <button>Get Started</button>
+        <button className="cursor-pointer">GitHub</button>
+        <button className="cursor-pointer">Sign in</button>
+        <button className="cursor-pointer">Get Started</button>
       </div>
     </div>
   );

@@ -8,6 +8,10 @@ import {
   MessageSquare,
   BarChart2,
   MoreHorizontal,
+  MousePointer2,
+  Rss,
+  Webhook,
+  LogIn,
 } from "lucide-react";
 
 export const triggerOptions = [
@@ -16,14 +20,14 @@ export const triggerOptions = [
     title: "Trigger manually",
     description:
       "Runs the flow on clicking a button in n8n. Good for getting started quickly",
-    icon: PlayCircle,
+    icon: MousePointer2,
   },
   {
     id: "app-event",
     title: "On app event",
     description:
       "Runs the flow when something happens in an app like Telegram, Notion or Airtable",
-    icon: Bell,
+    icon: Rss,
   },
   {
     id: "schedule",
@@ -35,7 +39,7 @@ export const triggerOptions = [
     id: "webhook",
     title: "On webhook call",
     description: "Runs the flow on receiving an HTTP request",
-    icon: Globe,
+    icon: Webhook,
   },
   {
     id: "form",
@@ -49,7 +53,7 @@ export const triggerOptions = [
     title: "When executed by another workflow",
     description:
       "Runs the flow when called by the Execute Workflow node from a different workflow",
-    icon: Workflow,
+    icon: LogIn,
   },
   {
     id: "chat",

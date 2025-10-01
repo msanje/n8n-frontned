@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { triggerOptions } from "../data/triggerOptions";
+import { Search } from "lucide-react";
 
 function Triggers({
   open,
@@ -16,11 +17,23 @@ function Triggers({
     <div
       className={`absolute top-0 px-4 py-4 right-0 h-full w-[450px] bg-white dark:bg-gray-400 shadow-lg transform transition-transform duration-200 ${open ? "translate-x-0" : "translate-x-full"}`}
     >
-      <h1 className="text-xl">What Triggers this workflow?</h1>
-      <p className="text-gray-300">
-        A trigger is a step that starts your workflow
-      </p>
-      <input className="w-full" placeholder="Search nodes..." />
+      <div className="flex justify-between">
+        <div>
+          <h1 className="text-xl">What Triggers this workflow?</h1>
+          <p className="text-gray-300">
+            A trigger is a step that starts your workflow
+          </p>
+        </div>
+
+        <button className="cursor-pointer" onClick={close} aria-label="Close">
+          x
+        </button>
+      </div>
+
+      <div className="border-2 p-2 rounded-md border-gray-500 flex items-center gap-2 text-gray-500 my-8">
+        <Search size={18} />
+        <input className="w-full" placeholder="Search nodes..." />
+      </div>
 
       {triggerOptions.map((option, idx) => (
         <div
@@ -35,10 +48,6 @@ function Triggers({
           </div>
         </div>
       ))}
-
-      <button onClick={close} aria-label="Close">
-        x
-      </button>
     </div>
   );
 }

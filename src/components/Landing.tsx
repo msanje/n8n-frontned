@@ -1,6 +1,6 @@
 import LandingNav from "./LandingNav";
 
-function Landing() {
+function LandingPage() {
   return (
     <div>
       <LandingNav />
@@ -17,4 +17,4 @@ function Landing() {
   );
 }
 
-export default Landing;
+export default LandingPage;
