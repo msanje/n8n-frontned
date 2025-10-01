@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import LandingPage from "./components/Landing";
 import Workflow from "./components/Workflow";
 import Test from "./components/Test";
+import IconDemo from "./components/IconDemo";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/workflow" element={<Workflow />} />
           <Route path="/test" element={<Test />} />
+          <Route path="/icons-demo" element={<IconDemo />} />
         </Routes>
       </main>
     </div>

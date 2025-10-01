@@ -1,5 +1,6 @@
 ### Work in Progress
 
+- [ ] side bar needs to be collapsable
 - [ ] fix workflow page. make things fixed.
   - [ ] make the logs terminal minimizable
   - [ ] sidebar needs work

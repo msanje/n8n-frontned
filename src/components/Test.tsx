@@ -1,3 +1,4 @@
+import IconDemo from "./IconDemo";
 import Reactflow from "./Reactflow";
 
 function Test() {
@@ -6,7 +7,8 @@ function Test() {
       <div className="h-screen min-h-0 flex flex-col bg-red-700">
         <div className="flex-1 min-h-0 bg-red-700">
           {/* <h1>Hello world</h1> */}
-          <Reactflow />
+          {/* <Reactflow /> */}
+          <IconDemo />
         </div>
       </div>
     </div>

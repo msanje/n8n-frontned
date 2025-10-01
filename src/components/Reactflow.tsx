@@ -77,7 +77,7 @@ function Reactflow() {
       />
 
       <div
-        className={`fixed top-0 right-0 w-[450px] bg-white dark:bg-gray-400 shadow-lg transform transition-transform duration-200 ${show ? "translate-x-0" : "translate-x-full"}`}
+        className={`fixed top-0 right-0 w-[450px] bg-white dark:bg-gray-400 shadow-lg transform transition-transform duration-300 ${show ? "translate-x-0" : "translate-x-full"}`}
       >
         <Triggers
           open={show}
