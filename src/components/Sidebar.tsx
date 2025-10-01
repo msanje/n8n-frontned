@@ -29,9 +29,9 @@ function Sidebar() {
   ]);
 
   return (
-    <div className="flex flex-col justify-between min-h-screen w-64 border-r-1">
+    <div className="flex flex-col justify-between min-h-screen w-64 border-r-1 bg-red-700">
       <div className="flex justify-between items-center px-4 py-2">
-        <h1 className="text-3xl">n8n</h1>
+        <h1 className="text-3xl cursor-pointer">n8n</h1>
         {/* TODO: On hover style color and border to orange */}
         <Plus size={20} className="text-gray-500 border border-gray-500" />
       </div>

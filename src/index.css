@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+body {
+  height: 100%;
+  margin: 0;
+  background-color: yellow;
+}
+
 /**/
 /* : root { */
 /*   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; */

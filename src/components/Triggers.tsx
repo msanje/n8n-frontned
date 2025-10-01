@@ -15,7 +15,7 @@ function Triggers({
 
   return (
     <div
-      className={`absolute top-0 px-4 py-4 right-0 h-full w-[450px] bg-white dark:bg-gray-400 shadow-lg transform transition-transform duration-200 ${open ? "translate-x-0" : "translate-x-full"}`}
+      className={`absolute top-0 px-4 py-4 right-0 h-screen w-[450px] bg-white dark:bg-gray-400 shadow-lg transform transition-transform duration-200 ${open ? "translate-x-0" : "translate-x-full"}`}
     >
       <div className="flex justify-between">
         <div>

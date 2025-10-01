@@ -64,7 +64,7 @@ function Reactflow() {
   );
 
   return (
-    <div className="">
+    <div style={{ height: 500 }}>
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -72,13 +72,15 @@ function Reactflow() {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         fitView
+        fitViewOptions={{ padding: 0 }}
       />
 
-      <Triggers
-        open={show}
-        trigger={sampleTrigger}
-        close={() => setShow(false)}
-      />
+      {/* This added overflow y */}
+      {/* <Triggers */}
+      {/*   open={show} */}
+      {/*   trigger={sampleTrigger} */}
+      {/*   close={() => setShow(false)} */}
+      {/* /> */}
     </div>
   );
 }
