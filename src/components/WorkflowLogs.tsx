@@ -1,35 +1,23 @@
 import { ChevronDown, ChevronUp, Ellipsis } from "lucide-react";
 import { useState } from "react";
 
-function WorkflowLogs() {
+function WorkflowLogs({ show, toggleShow }) {
   const [logs, setLogs] = useState([]);
-  const [show, setShow] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
 
   return (
-    <div>
+    <div className="flex flex-col h-full min-h-0 bg-yellow-500">
       <div className="border-y-1 flex justify-between px-2 py-1">
         <h3 className="">Logs</h3>
-        <div className="flex gap-2 ">
+        <div className="flex gap-2">
           <button
             className="cursor-pointer"
             onClick={() => setShowOptions((prev) => !prev)}
           >
             <Ellipsis />
           </button>
-          <button
-            className="cursor-pointer"
-            onClick={() => setShow((prev) => !prev)}
-          >
-            {show ? (
-              <>
-                <ChevronUp />
-              </>
-            ) : (
-              <>
-                <ChevronDown />
-              </>
-            )}
+          <button className="cursor-pointer" onClick={toggleShow}>
+            {show ? <ChevronUp /> : <ChevronDown />}
           </button>
         </div>
       </div>
