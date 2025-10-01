@@ -12,27 +12,37 @@ import {
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import Triggers from "./Triggers";
-
-const testInitialNodes: Node[] = [
-  {
-    id: "add-step",
-    position: { x: 200, y: 50 },
-    data: {
-      label: (
-        <div className="flex flex-col items-center justify-center text-gray-400 cursor-pointer">
-          <div className="w-12 h-12 rounded-md border-2 border-dashed border-gray-500 flex items-center justify-center">
-            <span className="text-2xl">+</span>
-          </div>
-          <div>Add first step...</div>
-        </div>
-      ),
-    },
-  },
-];
-
-const testInitialEdges: Edge[] = [];
+import { Plus } from "lucide-react";
 
 function Reactflow() {
+  const testInitialNodes: Node[] = [
+    {
+      id: "add-step",
+      position: { x: 200, y: 50 },
+      data: {
+        label: <div className="bg-green-500 h-48">Add first step...</div>,
+      },
+    },
+    {
+      id: "add-button",
+      position: { x: 400, y: 50 },
+      data: {
+        label: <Plus size={48} />,
+      },
+      style: {
+        width: 48,
+        height: 48,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      },
+    },
+  ];
+
+  const testInitialEdges: Edge[] = [
+    { id: "e1-2", source: "add-step", target: "add-button" },
+  ];
+
   const [show, setShow] = useState(false);
 
   const [nodes, setNodes] = useState<Node[]>(testInitialNodes);
