@@ -38,7 +38,7 @@ function Sidebar() {
   return (
     <div className="relative min-h-screen">
       <aside
-        className={`relative min-h-screen bg-red-700 transition-[width] duration-500 ease-in-out overflow-hidden ${collapsed ? "w-18" : "w-64"}`}
+        className={`relative min-h-screen transition-[width] duration-500 ease-in-out overflow-hidden ${collapsed ? "w-18" : "w-64"}`}
       >
         {/* Header */}
         <div

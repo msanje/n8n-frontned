@@ -13,7 +13,7 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`relative h-full min-h-screen bg-red-700
+      className={`relative h-full min-h-screen 
         transition-[width] duration-500 ease-in-out overflow-hidden
         ${collapsed ? "w-20" : "w-64"}`}
       aria-expanded={!collapsed}
