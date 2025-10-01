@@ -73,7 +73,7 @@ function Sidebar() {
             </button>
           </div>
 
-          <div className="bg-blue-500">
+          <div className="bg-blue-500 cursor-pointer">
             <PlusIcon />
           </div>
           <div className="flex flex-col">

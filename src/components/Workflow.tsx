@@ -5,7 +5,7 @@ import Sidebar from "./Sidebar";
 import WorkflowLogs from "./WorkflowLogs";
 
 function Workflow() {
-  const { sidebarCollapsed, toggleSidebar } = useUIStore();
+  const { sidebarCollapsed } = useUIStore();
 
   return (
     <div className="w-screen h-screen">

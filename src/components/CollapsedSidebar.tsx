@@ -44,7 +44,7 @@ function CollapsedSidebar() {
       {/* TODO: On hover style color and border to orange */}
       <div className="flex flex-col justify-between mx-auto">
         <div className="flex flex-col gap-4">
-          <button className="flex gap-2">
+          <button className="flex gap-2 cursor-pointer">
             <Plus
               size={20}
               className="text-gray-500 border border-gray-500 mx-auto"
