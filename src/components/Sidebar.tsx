@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import SidebarToggleArrow from "./SidebarToggleArrow";
+import Icon from "./Icons";
 
 function Sidebar() {
   const otherOptions = [
@@ -47,11 +48,17 @@ function Sidebar() {
       <div className="flex flex-col justify-between min-h-screen w-64 border-r-1 bg-red-700">
         <div className="flex justify-between items-center px-4 py-2">
           <h1 className="text-3xl cursor-pointer">n8n</h1>
+          <Icon name="logo" size={28} color="gray" className="text-blue-500" />
           {/* TODO: On hover style color and border to orange */}
-          <Plus size={20} className="text-gray-500 border border-gray-500" />
         </div>
         <div className="flex flex-col justify-between pl-4">
           <div className="flex flex-col gap-4 -mt-80">
+            <button className="flex gap-2">
+              <Plus
+                size={20}
+                className="text-gray-500 border border-gray-500"
+              />
+            </button>
             <button className="flex gap-2">
               <Home size={24} className="text-gray-500" />
               Overview

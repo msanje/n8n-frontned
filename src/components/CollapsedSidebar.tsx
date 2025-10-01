@@ -13,6 +13,7 @@ import {
   Variable,
 } from "lucide-react";
 import { useState } from "react";
+import Icon from "./Icons";
 
 function CollapsedSidebar() {
   const otherOptions = [
@@ -34,7 +35,9 @@ function CollapsedSidebar() {
   return (
     <div className="flex flex-col justify-between min-h-screen w-14 border-r-1 bg-red-700">
       <div className="flex justify-between items-center px-4 py-2">
-        <h1 className="text-3xl cursor-pointer">n8n</h1>
+        <h1 className="text-3xl cursor-pointer">
+          <Icon name="logo" size={28} color="gray" className="text-blue-500" />
+        </h1>
       </div>
 
       {/* TODO: On hover style color and border to orange */}
