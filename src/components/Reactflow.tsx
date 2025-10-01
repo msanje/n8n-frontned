@@ -64,7 +64,7 @@ function Reactflow() {
   );
 
   return (
-    <div style={{ height: 500 }}>
+    <div className="h-full min-h-0 bg-red-700">
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -74,6 +74,7 @@ function Reactflow() {
         fitView
         fitViewOptions={{ padding: 0 }}
         onClick={() => setShow((prev) => !prev)}
+        className="h-full min-h-0 min-w-0"
       />
 
       <div

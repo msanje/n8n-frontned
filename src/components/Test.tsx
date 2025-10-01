@@ -1,17 +1,38 @@
-import IconDemo from "./IconDemo";
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "../components/ui/resizable";
 
-function Test() {
+export function ResizableDemo() {
   return (
-    <div className="h-screen w-screen overflow-clip">
-      <div className="h-screen min-h-0 flex flex-col bg-red-700">
-        <div className="flex-1 min-h-0 bg-red-700">
-          {/* <h1>Hello world</h1> */}
-          {/* <Reactflow /> */}
-          <IconDemo />
+    <ResizablePanelGroup
+      direction="horizontal"
+      className="max-w-md rounded-lg border md:min-w-[450px]"
+    >
+      <ResizablePanel defaultSize={50}>
+        <div className="flex h-[200px] items-center justify-center p-6">
+          <span className="font-semibold">One</span>
         </div>
-      </div>
-    </div>
+      </ResizablePanel>
+      <ResizableHandle />
+      <ResizablePanel defaultSize={50}>
+        <ResizablePanelGroup direction="vertical">
+          <ResizablePanel defaultSize={25}>
+            <div className="flex h-full items-center justify-center p-6">
+              <span className="font-semibold">Two</span>
+            </div>
+          </ResizablePanel>
+          <ResizableHandle />
+          <ResizablePanel defaultSize={75}>
+            <div className="flex h-full items-center justify-center p-6">
+              <span className="font-semibold">Three</span>
+            </div>
+          </ResizablePanel>
+        </ResizablePanelGroup>
+      </ResizablePanel>
+    </ResizablePanelGroup>
   );
 }
 
-export default Test;
+export default ResizableDemo;

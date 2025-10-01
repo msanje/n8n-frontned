@@ -36,7 +36,7 @@ function Sidebar() {
   const toggleSidebar = useUIStore((s) => s.toggleSidebar);
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen bg-gray-400">
       <aside
         className={`relative min-h-screen transition-[width] duration-500 ease-in-out overflow-hidden ${collapsed ? "w-18" : "w-64"}`}
       >
