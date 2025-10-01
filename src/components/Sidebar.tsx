@@ -9,101 +9,137 @@ import {
   Layers,
   LayoutPanelTop,
   Plus,
-  PlusIcon,
   User,
   Variable,
 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
 import Icon from "./Icons";
 import { useUIStore } from "../store/uiStore";
+
+const nav = [
+  { id: "overview", label: "Overview", icon: Home },
+  { id: "personal", label: "Personal", icon: User },
+  { id: "projects", label: "Projects", icon: Layers },
+];
+
+const projects = ["Project One", "Project Two", "Project Three"];
+const otherOptions = [
+  { name: "Admin Panel", icon: Cloud },
+  { name: "Templates", icon: LayoutPanelTop },
+  { name: "Variables", icon: Variable },
+  { name: "Insights", icon: ChartColumnDecreasing },
+  { name: "Help", icon: CircleQuestionMark },
+  { name: "What's New", icon: Bell },
+];
 
 function Sidebar() {
   const collapsed = useUIStore((s) => s.sidebarCollapsed);
   const toggleSidebar = useUIStore((s) => s.toggleSidebar);
 
-  const otherOptions = [
-    { name: "Admin Panel", icon: Cloud },
-    { name: "Templates", icon: LayoutPanelTop },
-    { name: "Variables", icon: Variable },
-    { name: "Insights", icon: ChartColumnDecreasing },
-    { name: "Help", icon: CircleQuestionMark },
-    { name: "What's New", icon: Bell },
-  ];
-  const sidebarRef = useRef<HTMLDivElement>(null);
-  const [height, setHeight] = useState(0);
-
-  const [projects, setProjects] = useState([
-    "Project One",
-    "Project Two",
-    "Project Three",
-  ]);
-
-  useEffect(() => {
-    if (sidebarRef.current) {
-      setHeight(sidebarRef.current.getBoundingClientRect().height);
-    }
-  }, [collapsed]);
-
   return (
-    <div
-      ref={sidebarRef}
-      className={`relative ${collapsed ? "w-20" : "w-64"} min-h-screen border-r bg-red-700 transition-all`}
-    >
-      <div className="flex flex-col justify-between min-h-screen w-64 border-r-1 bg-red-700">
-        <div className="flex justify-between items-center px-4 py-2">
-          <h1 className="text-3xl cursor-pointer">n8n</h1>
-          <Icon name="logo" size={28} color="gray" className="text-blue-500" />
-          {/* TODO: On hover style color and border to orange */}
-        </div>
-        <div className="flex flex-col justify-between pl-4">
-          <div className="flex flex-col gap-4 -mt-80">
-            <button className="flex gap-2">
-              <Plus
-                size={20}
-                className="text-gray-500 border border-gray-500"
-              />
-            </button>
-            <button className="flex gap-2">
-              <Home size={24} className="text-gray-500" />
-              Overview
-            </button>
-            <button className="flex gap-2">
-              <User size={24} className="text-gray-500" />
-              Personal
-            </button>
+    <div className="relative min-h-screen">
+      <aside
+        className={`relative min-h-screen bg-red-700 transition-[width] duration-500 ease-in-out overflow-hidden ${collapsed ? "w-18" : "w-64"}`}
+      >
+        {/* Header */}
+        <div
+          className={`flex items-center justify-between p-2 ${collapsed ? "flex-col gap-2" : "flex-row gap-2"}`}
+        >
+          <div
+            className={`flex items-center ${collapsed ? "flex-col gap-6 mb-4" : "flex-row gap-2"}`}
+          >
+            <Icon
+              name="logo"
+              size={28}
+              color="gray"
+              className="text-blue-500"
+            />
+            {!collapsed && (
+              <span
+                className={`overflow-hidden transition-all duration-300 ease-in-out whitespace-nowrap ${
+                  collapsed
+                    ? "max-w-0 opacity-0 translate-x-2"
+                    : "max-w-xs opacity-100 translate-x-0"
+                }`}
+              >
+                n8n
+              </span>
+            )}
           </div>
 
-          <div className="bg-blue-500 cursor-pointer">
-            <PlusIcon />
-          </div>
-          <div className="flex flex-col">
-            <h2 className="text-2xl mb-4">Projects</h2>
-            {projects.map((project, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <Layers />
-                <button
-                  key={index}
-                  className="py-2 hover:bg-gray-500 rounded-md"
+          <button className="p-1 cursor-pointer rounded bg-white/10 hover:bg-white/20 -mb-2">
+            <Plus size={16} />
+          </button>
+        </div>
+
+        {/* Navigation */}
+        <nav className="mt-4 flex flex-col gap-2 px-2">
+          {nav.map((item) => {
+            const Icon = item.icon;
+            return (
+              <button
+                key={item.id}
+                title={collapsed ? item.label : undefined} // tooltip when collapsed
+                className="group w-full flex items-center gap-3 px-3 py-2 rounded hover:bg-white/5 focus:outline-none"
+              >
+                <Icon className="flex-none" />
+                <div
+                  className={`overflow-hidden transition-all duration-200 ease-in-out
+                  ${collapsed ? "max-w-0 opacity-0 translate-x-2" : "max-w-xs opacity-100 translate-x-0"}`}
+                  aria-hidden={collapsed}
                 >
-                  {project}
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
+                  <span className="whitespace-nowrap">{item.label}</span>
+                </div>
+              </button>
+            );
+          })}
 
-        <div onClick={toggleSidebar} className="cursor-pointer">
-          {collapsed ? <CircleChevronRight /> : <CircleChevronLeft />}
-        </div>
-
-        <div className="px-4">
-          {otherOptions.map((option, idx) => (
-            <div key={idx} className="flex items-center gap-2 m-4">
-              <option.icon />
-              <p>{option.name}</p>
-            </div>
+          {projects.map((project, idx) => (
+            <button
+              key={idx}
+              className="flex items-center gap-2 w-full px-3 py-2 rounded hover:bg-white/5"
+            >
+              <Layers className="flex-none" />
+              <span
+                className={`overflow-hidden transition-all duration-300 ease-in-out whitespace-nowrap ${collapsed ? "max-w-0 opacity-0 translate-x-2" : "max-w-xs opacity-100 translate-x-0"}`}
+              >
+                {project}
+              </span>
+            </button>
           ))}
+        </nav>
+        {/* Footer / Other options */}
+        <div className="absolute bottom-4 left-0 right-0 px-3 flex flex-col gap-2">
+          {otherOptions.map((option, idx) => {
+            const IconComp = option.icon;
+
+            return (
+              <button
+                key={idx}
+                className="flex items-center gap-2 w-full px-2 py-1 rounded hover:bg-white/5"
+                title={collapsed ? option.name : undefined}
+              >
+                <IconComp />
+                <span
+                  className={`overflow-hidden transition-all duration-300 ease-in-out whitespace-nowrap ${collapsed ? "max-w-0 opacity-0 translate-x-2" : "max-w-xs opacity-100 translate-x-0"}`}
+                >
+                  {option.name}
+                </span>
+              </button>
+            );
+          })}
         </div>
+      </aside>
+
+      {/* Sidebar Toggle */}
+      <div
+        onClick={toggleSidebar}
+        className={`absolute top-1/2 z-50 cursor-pointer p-1 bg-white rounded-full shadow-lg transform -translate-y-1/2 transition-all duration-500 ease-in-out`}
+        style={{
+          left: collapsed ? "4.5rem" : "16rem",
+          transform: "translateX(-50%) translateY(-50%)",
+        }}
+      >
+        {collapsed ? <CircleChevronRight /> : <CircleChevronLeft />}
       </div>
     </div>
   );
