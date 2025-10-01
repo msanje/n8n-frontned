@@ -73,14 +73,18 @@ function Reactflow() {
         onConnect={onConnect}
         fitView
         fitViewOptions={{ padding: 0 }}
+        onClick={() => setShow((prev) => !prev)}
       />
 
-      {/* This added overflow y */}
-      {/* <Triggers */}
-      {/*   open={show} */}
-      {/*   trigger={sampleTrigger} */}
-      {/*   close={() => setShow(false)} */}
-      {/* /> */}
+      <div
+        className={`fixed top-0 right-0 w-[450px] bg-white dark:bg-gray-400 shadow-lg transform transition-transform duration-200 ${show ? "translate-x-0" : "translate-x-full"}`}
+      >
+        <Triggers
+          open={show}
+          trigger={sampleTrigger}
+          close={() => setShow(false)}
+        />
+      </div>
     </div>
   );
 }
