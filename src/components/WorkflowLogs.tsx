@@ -6,7 +6,7 @@ function WorkflowLogs({ show, toggleShow }) {
   const [showOptions, setShowOptions] = useState(false);
 
   return (
-    <div className="flex flex-col h-full min-h-0 bg-yellow-500">
+    <div className="flex flex-col h-full min-h-0">
       <div className="border-y-1 flex justify-between px-2 py-1">
         <h3 className="">Logs</h3>
         <div className="flex gap-2">

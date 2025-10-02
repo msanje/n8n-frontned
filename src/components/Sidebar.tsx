@@ -14,6 +14,11 @@ import {
 } from "lucide-react";
 import Icon from "./Icons";
 import { useUIStore } from "../store/uiStore";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@radix-ui/react-popover";
 
 const nav = [
   { id: "overview", label: "Overview", icon: Home },
@@ -66,9 +71,26 @@ function Sidebar() {
             )}
           </div>
 
-          <button className="p-1 cursor-pointer rounded bg-white/10 hover:bg-white/20 -mb-2">
-            <Plus size={16} />
-          </button>
+          <Popover>
+            <PopoverTrigger>
+              <button className="p-1 cursor-pointer rounded bg-white/10 hover:bg-white/20 -mb-2">
+                <Plus size={16} />
+              </button>
+            </PopoverTrigger>
+            <PopoverContent>
+              <div className="flex flex-col w-48 h-auto bg-gray-800 rounded-md shadow-md p-2 gap-2">
+                <button className="w-full py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md transition-colors">
+                  Workflow
+                </button>
+                <button className="w-full py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md transition-colors">
+                  Credential
+                </button>
+                <button className="w-full py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md transition-colors">
+                  Project
+                </button>
+              </div>
+            </PopoverContent>
+          </Popover>
         </div>
 
         {/* Navigation */}

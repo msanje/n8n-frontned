@@ -13,14 +13,27 @@ import {
 import "@xyflow/react/dist/style.css";
 import Triggers from "./Triggers";
 import { Plus } from "lucide-react";
+import { nodeTypes } from "../constants/nodeTypes";
 
 function Reactflow() {
   const testInitialNodes: Node[] = [
     {
       id: "add-step",
+      type: "textUpdater",
       position: { x: 200, y: 50 },
       data: {
-        label: <div className="bg-green-500 h-48">Add first step...</div>,
+        // label: <div className="bg-green-500 h-48">Add first step...</div>,
+        label: (
+          <div
+            className={`w-24 h-24 bg-gray-700 rounded-l-[2.5rem] rounded-r-md border-2 border-gray-400 flex items-center justify-center cursor-pointer select-none`}
+          >
+            <img
+              src="/cursor.svg"
+              alt="cursor"
+              className="w-12 h-12 pointer-events-none"
+            />
+          </div>
+        ),
       },
     },
     {
@@ -74,10 +87,11 @@ function Reactflow() {
   );
 
   return (
-    <div className="h-full min-h-0 bg-red-700">
+    <div className="h-full min-h-0">
       <ReactFlow
         nodes={nodes}
         edges={edges}
+        nodeTypes={nodeTypes}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}

@@ -26,7 +26,7 @@ function Home() {
             </p>
           </div>
 
-          <div className="flex h-8 bg-green-500 w-auto px-4">
+          <div className="flex h-8 w-auto px-4">
             <button>Create Workflow</button>
             <ChevronDown />
           </div>
